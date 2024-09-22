@@ -19,6 +19,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 
+
 def get_pdf_text(pdf_docs):
     text=""
     for pdf in pdf_docs:
@@ -80,16 +81,18 @@ def user_input(user_question):
     st.write("Reply: ", response["output_text"])
 
 
-
-
 def main():
     st.set_page_config("Chat PDF")
-    st.header("Chat with PDF using MEKANYI🚀")
+    st.header(" Powered by Mekanyi 🚀")
+    
+    user_question = st.text_input("Ask a Question")
 
-    user_question = st.text_input("Ask a Question from the PDF Files")
+    
 
     if user_question:
         user_input(user_question)
+
+        
 
     with st.sidebar:
         st.title("Menu:")
@@ -101,6 +104,8 @@ def main():
                 get_vector_store(text_chunks)
                 st.success("Done")
 
+                
+           
 
 
 if __name__ == "__main__":
