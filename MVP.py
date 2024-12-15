@@ -45,8 +45,11 @@ def get_vector_store(text_chunks):
 def get_conversational_chain():
 
     prompt_template = """
-    Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
+    Answer the question based strictly on the provided context. Follow these guidelines:
+
+If the answer is present in the context, provide a detailed and comprehensive response using all relevant information.
+If the answer cannot be determined from the context, respond with: "The answer is not available in the provided context."
+Do not use external knowledge, make assumptions, or fabricate information.
     Context:\n {context}?\n
     Question: \n{question}\n
 
